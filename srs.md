@@ -23,7 +23,7 @@ không thuộc trong scope(Dung ai tìm dương ngắn nhất, xử lý nhu cầ
 6. business process -quy trình nghiệp vụ dùng công cụ mermaid trong markdown
 7. Functional Requirement 
 - 
-1. Business Context – Ngữ cảnh nghiệp vụ
+# 1. Business Context – Ngữ cảnh nghiệp vụ
    ABC là doanh nghiệp cung cấp dịch vụ đặt xe trực tuyến, trong đó có 3 nhóm người dùng chính:
 
       Customer – người có nhu cầu đặt xe.
@@ -40,7 +40,7 @@ không thuộc trong scope(Dung ai tìm dương ngắn nhất, xử lý nhu cầ
    Ngữ cảnh hiện tại: hệ thống cũ còn phụ thuộc nhiều vào tổng đài và thao tác thủ công, đặc biệt trong việc phân công tài xế, theo dõi chuyến và quản lý thanh toán.
    
                          
-   2. Business Problem – Vấn đề kinh doanh
+   # 1.2. Business Problem – Vấn đề kinh doanh
       Hệ thống đặt xe hiện tại phụ thuộc nhiều vào thao tác thủ công và chưa có khả năng quản lý tập trung toàn bộ vòng đời chuyến xe, dẫn đến hiệu quả điều phối thấp, trải nghiệm khách hàng hạn chế, khó kiểm soát thanh toán và dữ liệu vận hành, đồng thời làm giảm khả năng mở rộng dịch vụ của ABC.
       Hệ thống cũ có 6 vấn đề đang hiện hành:
         Phân công tài xế thủ công: Chậm xử lý booking, tăng chi phí vận hành
@@ -50,9 +50,9 @@ không thuộc trong scope(Dung ai tìm dương ngắn nhất, xử lý nhu cầ
         Hệ thống khó mở rộng: Khó đáp ứng khi số lượng booking tăng
         Phụ thuộc vào một hệ thống/luồng xử lý: Một lỗi có thể ảnh hưởng toàn bộ dịch vụ
 
-   3. Mục đích – Business Purpose
+   # 1.3. Mục đích – Business Purpose
       Xây dựng một nền tảng CAB tập trung nhằm tự động hóa quy trình đặt và điều phối xe, nâng cao trải nghiệm khách hàng, tăng hiệu quả vận hành và tạo nền tảng công nghệ có khả năng mở rộng cho các dịch vụ vận tải trong tương lai.
-   # 4. Giá trị của CAB System so với hệ thống cũ
+   # 1.4. Giá trị của CAB System so với hệ thống cũ
 
 | **Khía cạnh** | **Hệ thống cũ** | **CAB System mới** | **Giá trị tạo ra** |
 |---|---|---|---|
