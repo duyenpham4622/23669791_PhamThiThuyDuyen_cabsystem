@@ -118,27 +118,39 @@ không thuộc trong scope(Dung ai tìm dương ngắn nhất, xử lý nhu cầ
 | **Map/GPS Provider** | Cung cấp dữ liệu bản đồ, vị trí, khoảng cách và hỗ trợ tính ETA |
 | **Cơ quan quản lý / Pháp lý** | Đảm bảo hệ thống tuân thủ các quy định về vận tải, thanh toán và bảo vệ dữ liệu |
 
-# 2.1 Ma trận Power – Interest
-                         MỨC ĐỘ QUAN TÂM (INTEREST)
-                    Thấp                         Cao
-              ┌───────────────────────┬────────────────────────┐
-              │                       │                        │
-        Cao   │  KEEP SATISFIED       │  MANAGE CLOSELY        │
-              │                       │                        │
-              │ • System Admin        │ • Ban giám đốc         │
-              │ • Tài chính/Kế toán   │ • Operation             │
-              │ • DevOps              │ • BA                    │
-              │ • Pháp lý             │ • PM                    │
-              │ • Payment Provider    │ • Customer              │
-              │ • Map/GPS             │ • Driver                │
-              │                       │ • Development Team      │
-              │                       │ • CS                    │
-MỨC ĐỘ        │                       │                        │
-ẢNH HƯỞNG     ├───────────────────────┼────────────────────────┤
-(POWER)       │                       │                        │
-              │  MONITOR              │  KEEP INFORMED         │
-        Thấp  │                       │                        │
-              │ • Notification        │ • QA/Tester             │
-              │   Provider            │                        │
-              │                       │                        │
-              └───────────────────────┴────────────────────────┘
+# 2.1. Ma trận Stakeholder – Mức độ ảnh hưởng
+
+| **Stakeholder** | **Mức độ ảnh hưởng** | **Mức độ quan tâm** | **Chiến lược quản lý** |
+|---|---|---|---|
+| **Ban giám đốc / Business Owner** | 🔴 Cao | 🔴 Cao | **Manage Closely** – Tham gia quyết định, cập nhật thường xuyên |
+| **Nhân viên vận hành (Operation)** | 🔴 Cao | 🔴 Cao | **Manage Closely** – Tham gia sâu vào phân tích nghiệp vụ |
+| **Khách hàng (Customer)** | 🟠 Trung bình | 🔴 Cao | **Keep Informed** – Thu thập feedback và kiểm tra trải nghiệm |
+| **Tài xế (Driver)** | 🟠 Trung bình | 🔴 Cao | **Keep Informed** – Thu thập nhu cầu và phản hồi |
+| **System Admin** | 🔴 Cao | 🟠 Trung bình | **Keep Satisfied** – Đảm bảo quyền quản trị và bảo mật |
+| **Bộ phận Tài chính / Kế toán** | 🟠 Trung bình | 🟠 Trung bình | **Keep Satisfied** – Đảm bảo yêu cầu thanh toán, đối soát |
+| **Bộ phận CS** | 🟠 Trung bình | 🔴 Cao | **Keep Informed** – Đảm bảo chức năng hỗ trợ khách hàng |
+| **Business Analyst (BA)** | 🔴 Cao | 🔴 Cao | **Manage Closely** – Phân tích và quản lý yêu cầu |
+| **Project Manager (PM)** | 🔴 Cao | 🔴 Cao | **Manage Closely** – Quản lý tiến độ, phạm vi và rủi ro |
+| **Development Team** | 🟠 Trung bình | 🔴 Cao | **Keep Informed / Collaborate** |
+| **QA / Tester** | 🟢 Thấp – Trung bình | 🔴 Cao | **Keep Informed** – Đảm bảo chất lượng và nghiệp vụ |
+| **DevOps / Infrastructure** | 🔴 Cao | 🟠 Trung bình – Cao | **Keep Satisfied / Collaborate** |
+| **Payment Provider** | 🟠 Trung bình | 🟠 Trung bình | **Keep Satisfied** – Quản lý tích hợp và giao dịch |
+| **Notification Provider** | 🟢 Thấp – Trung bình | 🟠 Trung bình | **Monitor / Keep Satisfied** |
+| **Map/GPS Provider** | 🟠 Trung bình | 🟠 Trung bình | **Keep Satisfied** – Đảm bảo dữ liệu vị trí và ETA |
+| **Cơ quan quản lý / Pháp lý** | 🔴 Cao | 🟠 Trung bình | **Keep Satisfied** – Đảm bảo tuân thủ pháp luật |
+
+## Ma trận Power – Interest
+
+| | **Mức độ quan tâm THẤP** | **Mức độ quan tâm CAO** |
+|---|---|---|
+| **Mức độ ảnh hưởng CAO** | **KEEP SATISFIED**  <br>• System Admin  <br>• Tài chính / Kế toán  <br>• DevOps  <br>• Payment Provider  <br>• Map/GPS Provider  <br>• Cơ quan quản lý / Pháp lý | **MANAGE CLOSELY**  <br>• Ban giám đốc / Business Owner  <br>• Operation  <br>• BA  <br>• PM  <br>• Customer  <br>• Driver  <br>• Development Team |
+| **Mức độ ảnh hưởng THẤP** | **MONITOR**  <br>• Notification Provider | **KEEP INFORMED**  <br>• CS  <br>• QA / Tester |
+
+## Ý nghĩa các nhóm
+
+| **Nhóm** | **Chiến lược** | **Mô tả** |
+|---|---|---|
+| 🔴 **Manage Closely** | Quản lý chặt chẽ | Tham gia thường xuyên, lấy ý kiến và phối hợp trong các quyết định quan trọng |
+| 🟠 **Keep Satisfied** | Duy trì sự hài lòng | Đảm bảo nhu cầu được đáp ứng và cập nhật khi có thay đổi quan trọng |
+| 🟡 **Keep Informed** | Cập nhật thông tin | Cập nhật tiến độ, thay đổi và thu thập phản hồi |
+| 🟢 **Monitor** | Theo dõi | Theo dõi định kỳ và tương tác khi phát sinh nhu cầu |
