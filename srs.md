@@ -29,6 +29,7 @@ không thuộc trong scope(Dung ai tìm dương ngắn nhất, xử lý nhu cầ
 11. thiết kế các usecase
 12. Đặt tả usecase
 13. aceptant _ tiêu chí chấp nhận ac
+14. truy xuất nguồn gốc yêu cầu _ requirement (rtm)
 # 1. Business Context – Ngữ cảnh nghiệp vụ
    ABC là doanh nghiệp cung cấp dịch vụ đặt xe trực tuyến, trong đó có 3 nhóm người dùng chính:
 
@@ -1093,3 +1094,25 @@ flowchart LR
     UC03 -.-> UC04
     UC05 -.-> UC07
     UC07 -.-> UC08
+```
+#12. Đặt tả usecase
+#13. aceptant _ tiêu chí chấp nhận ac
+#14. truy xuất nguồn gốc yêu cầu _ requirement (rtm)
+# 14. Requirement Traceability Matrix (RTM)
+
+| **Business Requirement** | **Functional Requirement** | **Use Case** | **Acceptance Criteria** | **Test Case** |
+|---|---|---|---|---|
+| BR-01: Khách hàng có thể đăng ký và đăng nhập | FR-01: Đăng ký tài khoản; FR-02: Đăng nhập | UC-01: Đăng ký; UC-02: Đăng nhập | AC-01: Đăng ký thành công; AC-02: Không cho đăng ký tài khoản trùng; AC-03: Đăng nhập thành công | TC-01: Kiểm tra đăng ký; TC-02: Kiểm tra tài khoản trùng; TC-03: Kiểm tra đăng nhập |
+| BR-02: Khách hàng có thể đặt xe | FR-03: Nhập điểm đón/điểm đến; FR-04: Chọn loại xe; FR-05: Tạo Booking | UC-03: Đặt xe | AC-04: Tạo Booking thành công; AC-05: Dữ liệu không hợp lệ không được tạo Booking | TC-04: Đặt xe thành công; TC-05: Đặt xe với dữ liệu không hợp lệ |
+| BR-03: Hệ thống tự động tìm tài xế | FR-06: Lọc tài xế; FR-07: Xếp hạng tài xế; FR-08: Gửi yêu cầu nhận chuyến | UC-04: Tìm và phân công tài xế | AC-06: Chỉ chọn tài xế phù hợp; AC-07: Driver Reject thì tìm Driver khác; AC-08: Driver Timeout thì tìm Driver khác | TC-06: Matching Driver; TC-07: Driver Reject; TC-08: Driver Timeout |
+| BR-04: Tài xế có thể nhận và thực hiện chuyến | FR-09: Accept/Reject chuyến; FR-10: Cập nhật trạng thái Trip | UC-05: Nhận chuyến; UC-06: Thực hiện chuyến | AC-09: Driver có thể Accept/Reject; AC-10: Trạng thái Trip được cập nhật đúng thứ tự | TC-09: Accept Trip; TC-10: Reject Trip; TC-11: Cập nhật trạng thái |
+| BR-05: Khách hàng có thể theo dõi chuyến | FR-11: Hiển thị trạng thái; FR-12: Hiển thị vị trí Driver; FR-13: Hiển thị ETA | UC-07: Theo dõi chuyến | AC-11: Hiển thị trạng thái hiện tại; AC-12: Hiển thị Driver; AC-13: Hiển thị vị trí/ETA khi có dữ liệu | TC-12: Kiểm tra Trip Status; TC-13: Kiểm tra Driver Location; TC-14: Kiểm tra ETA |
+| BR-06: Hệ thống tự động tính cước | FR-14: Tính Fare; FR-15: Lưu Fare | UC-08: Tính cước | AC-14: Tính đúng Fare theo Fare Rule; AC-15: Fare được liên kết với Trip | TC-15: Tính cước; TC-16: Kiểm tra Fare |
+| BR-07: Khách hàng có thể thanh toán | FR-16: Thanh toán tiền mặt; FR-17: Thanh toán điện tử; FR-18: Xử lý Payment Failed | UC-09: Thanh toán | AC-16: Thanh toán thành công; AC-17: Thanh toán thất bại được thông báo; AC-18: Có thể Retry theo policy | TC-17: Cash Payment; TC-18: Electronic Payment; TC-19: Payment Failed; TC-20: Retry Payment |
+| BR-08: Hệ thống gửi thông báo | FR-19: Booking Notification; FR-20: Driver Notification; FR-21: Payment Notification | UC-10: Gửi thông báo | AC-19: Thông báo Booking; AC-20: Thông báo Driver; AC-21: Thông báo Payment | TC-21: Booking Notification; TC-22: Driver Notification; TC-23: Payment Notification |
+| BR-09: Khách hàng có thể đánh giá tài xế | FR-22: Tạo Rating | UC-11: Đánh giá tài xế | AC-22: Chỉ đánh giá Trip đã hoàn thành; AC-23: Không đánh giá trùng | TC-24: Đánh giá Driver; TC-25: Đánh giá Trip chưa hoàn thành |
+| BR-10: Nhân viên vận hành quản lý hệ thống | FR-23: Quản lý Customer; FR-24: Quản lý Driver; FR-25: Quản lý Vehicle; FR-26: Quản lý Trip | UC-12: Quản lý vận hành | AC-24: Operation xem được dữ liệu; AC-25: Chỉ thao tác được chức năng có quyền | TC-26: Customer Management; TC-27: Driver Management; TC-28: Trip Management |
+| BR-11: Doanh nghiệp cần báo cáo | FR-27: Báo cáo số chuyến; FR-28: Báo cáo doanh thu; FR-29: Báo cáo tỷ lệ hoàn thành/hủy | UC-13: Báo cáo | AC-26: Hiển thị số lượng chuyến; AC-27: Hiển thị doanh thu; AC-28: Tính tỷ lệ hoàn thành/hủy | TC-29: Trip Report; TC-30: Revenue Report; TC-31: Completion/Cancel Report |
+| BR-12: Hệ thống phải bảo mật | FR-30: Authentication; FR-31: Authorization/RBAC; FR-32: Audit Log | UC-02: Đăng nhập; UC-12: Quản lý vận hành | AC-29: User phải xác thực; AC-30: User chỉ được truy cập chức năng có quyền; AC-31: Thao tác quan trọng được ghi log | TC-32: Authentication; TC-33: Authorization; TC-34: Audit Log |
+| BR-13: Hệ thống phải hoạt động ổn định | FR-33: Retry; FR-34: Timeout; FR-35: Fault Isolation | UC-04: Matching; UC-09: Thanh toán; UC-10: Notification | AC-32: Payment lỗi không làm Booking dừng; AC-33: Notification lỗi không làm Trip thất bại; AC-34: Request timeout được xử lý | TC-35: Payment Failure Isolation; TC-36: Notification Failure; TC-37: Timeout/Retry |
+    
