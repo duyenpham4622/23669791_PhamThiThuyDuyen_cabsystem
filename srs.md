@@ -28,7 +28,7 @@ không thuộc trong scope(Dung ai tìm dương ngắn nhất, xử lý nhu cầ
 10. yêu cầu phi chức năng
 11. thiết kế các usecase
 12. Đặt tả usecase
-13. 
+13. aceptant _ tiêu chí chấp nhận ac
 # 1. Business Context – Ngữ cảnh nghiệp vụ
    ABC là doanh nghiệp cung cấp dịch vụ đặt xe trực tuyến, trong đó có 3 nhóm người dùng chính:
 
