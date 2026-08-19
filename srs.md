@@ -31,7 +31,8 @@ bg02: giảm time tìm tài xế(tìm tài tự động, gần nhất
       Các hệ thống báo cáo/BI trong tương lai.
 
    Ngữ cảnh hiện tại: hệ thống cũ còn phụ thuộc nhiều vào tổng đài và thao tác thủ công, đặc biệt trong việc phân công tài xế, theo dõi chuyến và quản lý thanh toán.
-                   ┌────────────────────┐
+   
+                     ┌────────────────────┐
                     │      Customer      │
                     └─────────┬──────────┘
                               │
@@ -43,6 +44,8 @@ bg02: giảm time tìm tài xế(tìm tài tự động, gần nhất
 └──────────────┘       └────────┬─────────┘       └──────────────┘
                                 │
                          Operation Staff
+
+                         
    2. Business Problem – Vấn đề kinh doanh'
       Hệ thống đặt xe hiện tại phụ thuộc nhiều vào thao tác thủ công và chưa có khả năng quản lý tập trung toàn bộ vòng đời chuyến xe, dẫn đến hiệu quả điều phối thấp, trải nghiệm khách hàng hạn chế, khó kiểm soát thanh toán và dữ liệu vận hành, đồng thời làm giảm khả năng mở rộng dịch vụ của ABC.
       Hệ thống cũ có 6 vấn đề đang hiện hành:
