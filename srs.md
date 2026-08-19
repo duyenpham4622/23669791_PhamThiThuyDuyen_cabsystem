@@ -140,17 +140,27 @@ không thuộc trong scope(Dung ai tìm dương ngắn nhất, xử lý nhu cầ
 | **Cơ quan quản lý / Pháp lý** | 🔴 Cao | 🟠 Trung bình | **Keep Satisfied** – Đảm bảo tuân thủ pháp luật |
 
 ## Ma trận Power – Interest
+                         MỨC ĐỘ QUAN TÂM (INTEREST)
+                    Thấp                         Cao
+              ┌───────────────────────┬────────────────────────┐
+              │                       │                        │
+        Cao   │  KEEP SATISFIED       │  MANAGE CLOSELY        │
+              │                       │                        │
+              │ • System Admin        │ • Ban giám đốc         │
+              │ • Tài chính/Kế toán   │ • Operation             │
+              │ • DevOps              │ • BA                    │
+              │ • Pháp lý             │ • PM                    │
+              │ • Payment Provider    │ • Customer              │
+              │ • Map/GPS             │ • Driver                │
+              │                       │ • Development Team      │
+              │                       │ • CS                    │
+MỨC ĐỘ        │                       │                        │
+ẢNH HƯỞNG     ├───────────────────────┼────────────────────────┤
+(POWER)       │                       │                        │
+              │  MONITOR              │  KEEP INFORMED         │
+        Thấp  │                       │                        │
+              │ • Notification        │ • QA/Tester             │
+              │   Provider            │                        │
+              │                       │                        │
+              └───────────────────────┴────────────────────────┘
 
-| | **Mức độ quan tâm THẤP** | **Mức độ quan tâm CAO** |
-|---|---|---|
-| **Mức độ ảnh hưởng CAO** | **KEEP SATISFIED**  <br>• System Admin  <br>• Tài chính / Kế toán  <br>• DevOps  <br>• Payment Provider  <br>• Map/GPS Provider  <br>• Cơ quan quản lý / Pháp lý | **MANAGE CLOSELY**  <br>• Ban giám đốc / Business Owner  <br>• Operation  <br>• BA  <br>• PM  <br>• Customer  <br>• Driver  <br>• Development Team |
-| **Mức độ ảnh hưởng THẤP** | **MONITOR**  <br>• Notification Provider | **KEEP INFORMED**  <br>• CS  <br>• QA / Tester |
-
-## Ý nghĩa các nhóm
-
-| **Nhóm** | **Chiến lược** | **Mô tả** |
-|---|---|---|
-| 🔴 **Manage Closely** | Quản lý chặt chẽ | Tham gia thường xuyên, lấy ý kiến và phối hợp trong các quyết định quan trọng |
-| 🟠 **Keep Satisfied** | Duy trì sự hài lòng | Đảm bảo nhu cầu được đáp ứng và cập nhật khi có thay đổi quan trọng |
-| 🟡 **Keep Informed** | Cập nhật thông tin | Cập nhật tiến độ, thay đổi và thu thập phản hồi |
-| 🟢 **Monitor** | Theo dõi | Theo dõi định kỳ và tương tác khi phát sinh nhu cầu |
