@@ -24,6 +24,8 @@ không thuộc trong scope(Dung ai tìm dương ngắn nhất, xử lý nhu cầ
 7. Functional Requirement 
 - 
 8. business rule và Exception
+9. mô hình hóa dữ liệu, xác định các thực thể
+10. yêu cầu phi chức năng
 # 1. Business Context – Ngữ cảnh nghiệp vụ
    ABC là doanh nghiệp cung cấp dịch vụ đặt xe trực tuyến, trong đó có 3 nhóm người dùng chính:
 
@@ -151,37 +153,32 @@ không thuộc trong scope(Dung ai tìm dương ngắn nhất, xử lý nhu cầ
 ## Sơ đồ ma trận
 
 ```text
-                    MỨC ĐỘ QUAN TÂM
-                  THẤP              CAO
-                    │                 │
-        ┌───────────┼─────────────────┐
-        │           │                 │
-        │  KEEP     │   MANAGE        │
- CAO    │ SATISFIED │   CLOSELY       │
-        │           │                 │
-        │  System   │   Ban giám đốc  │
-        │  Admin    │   Operation     │
-        │  Finance  │   BA            │
-        │  DevOps   │   PM            │
-        │  Payment  │   Customer      │
-        │  Map/GPS  │   Driver        │
-        │  Pháp lý  │   Development   │
-        │           │                 │
-        ├───────────┼─────────────────┤
-        │           │                 │
-        │  MONITOR  │   KEEP          │
-THẤP   │           │   INFORMED      │
-        │           │                 │
-        │  Notify   │   CS            │
-        │  Provider │   QA / Tester   │
-        │           │                 │
-        └───────────┴─────────────────┘
-                    │                 │
-                  THẤP              CAO
-                    MỨC ĐỘ QUAN TÂM
+                                             MỨC ĐỘ QUAN TÂM (INTEREST)
+                    Thấp                         Cao
+              ┌───────────────────────┬────────────────────────┐
+              │                       │                        │
+        Cao   │  KEEP SATISFIED       │  MANAGE CLOSELY        │
+              │                       │                        │
+              │ • System Admin        │ • Ban giám đốc         │
+              │ • Tài chính/Kế toán   │ • Operation             │
+              │ • DevOps              │ • BA                    │
+              │ • Pháp lý             │ • PM                    │
+              │ • Payment Provider    │ • Customer              │
+              │ • Map/GPS             │ • Driver                │
+              │                       │ • Development Team      │
+              │                       │ • CS                    │
+MỨC ĐỘ        │                       │                        │
+ẢNH HƯỞNG     ├───────────────────────┼────────────────────────┤
+(POWER)       │                       │                        │
+              │  MONITOR              │  KEEP INFORMED         │
+        Thấp  │                       │                        │
+              │ • Notification        │ • QA/Tester             │
+              │   Provider            │                        │
+              │                       │                        │
+              └───────────────────────┴────────────────────────┘
 
 ```
-# 4. Business Goals
+# 3. Business Goals
 
 | **ID** | **Business Goal** | **Mô tả** | **Giá trị kinh doanh** |
 |---|---|---|---|
@@ -197,4 +194,203 @@ THẤP   │           │   INFORMED      │
 | **BG-10** | **Xây dựng nền tảng có khả năng mở rộng** | Cho phép bổ sung dịch vụ, phương thức thanh toán và nhà cung cấp mới | Giảm chi phí phát triển trong tương lai |
 | **BG-11** | **Tăng khả năng kiểm soát hoạt động** | Cung cấp audit log và công cụ quản lý, theo dõi các chuyến bất thường | Tăng khả năng kiểm tra và xử lý sự cố |
 | **BG-12** | **Tạo nền tảng phát triển dịch vụ mới** | Kiến trúc linh hoạt để bổ sung các loại hình dịch vụ vận tải mới | Tạo cơ hội tăng trưởng dài hạn |
+
+# 4. Scope – Phạm vi dự án
+
+## 4.1. In Scope – Phạm vi thuộc dự án
+
+| **STT** | **Phạm vi** | **Mô tả** |
+|---|---|---|
+| **1** | **Quản lý khách hàng** | Đăng ký, đăng nhập, cập nhật thông tin cá nhân, quản lý tài khoản khách hàng |
+| **2** | **Quản lý tài xế** | Đăng ký/tạo tài khoản, cập nhật hồ sơ, trạng thái hoạt động và thông tin tài xế |
+| **3** | **Quản lý phương tiện** | Quản lý thông tin xe, loại xe và trạng thái phương tiện |
+| **4** | **Đặt xe** | Khách hàng nhập điểm đón, điểm đến, lựa chọn loại xe và tạo yêu cầu đặt xe |
+| **5** | **Tìm và phân công tài xế** | Xác định tài xế phù hợp dựa trên vị trí, trạng thái sẵn sàng và các tiêu chí vận hành đã được thống nhất |
+| **6** | **Quản lý trạng thái chuyến đi** | Theo dõi các trạng thái: đang tìm tài xế, đã nhận chuyến, tài xế đã đến, đã đón khách, đang di chuyển, hoàn thành, hủy |
+| **7** | **Theo dõi vị trí tài xế** | Tiếp nhận và lưu thông tin vị trí tài xế để hỗ trợ điều phối và hiển thị ETA |
+| **8** | **Thông báo** | Gửi thông báo cho khách hàng/tài xế về các sự kiện quan trọng của chuyến đi |
+| **9** | **Tính cước** | Xác định số tiền khách hàng phải trả dựa trên loại dịch vụ và thông tin chuyến đi |
+| **10** | **Thanh toán** | Hỗ trợ tiền mặt và tích hợp thanh toán điện tử thông qua Payment Provider |
+| **11** | **Xử lý giao dịch thanh toán** | Theo dõi trạng thái giao dịch, thông báo kết quả và xử lý thanh toán lại theo chính sách được thống nhất |
+| **12** | **Lịch sử chuyến đi** | Cho phép khách hàng tra cứu các chuyến đã thực hiện và thông tin thanh toán |
+| **13** | **Đánh giá tài xế** | Cho phép khách hàng đánh giá tài xế sau khi chuyến hoàn thành |
+| **14** | **Quản lý vận hành** | Nhân viên vận hành theo dõi khách hàng, tài xế, phương tiện và các chuyến đang diễn ra |
+| **15** | **Xử lý sự cố chuyến đi** | Cho phép nhân viên vận hành kiểm tra và hỗ trợ xử lý các trường hợp chuyến bị lỗi |
+| **16** | **Phân quyền quản trị** | Kiểm soát quyền truy cập và các thao tác quản trị theo vai trò |
+| **17** | **Báo cáo** | Báo cáo số lượng chuyến, doanh thu, tỷ lệ hoàn thành, tỷ lệ hủy và hiệu quả tài xế |
+| **18** | **Audit Log** | Lưu vết các thao tác quan trọng để phục vụ kiểm tra và xử lý sự cố |
+| **19** | **Tích hợp hệ thống bên ngoài** | Tích hợp Payment Provider, Notification Provider và Map/GPS Provider |
+| **20** | **Bảo mật** | Xác thực người dùng, phân quyền và bảo vệ dữ liệu cá nhân, vị trí và giao dịch |
+
+---
+
+## 4.2. Out of Scope – Không thuộc phạm vi dự án
+
+| **STT** | **Nội dung** | **Lý do / Ghi chú** |
+|---|---|---|
+| **1** | **Tự động xác định tuyến đường ngắn nhất** | CAB sử dụng dịch vụ Map/GPS bên ngoài để cung cấp routing; thuật toán tìm đường không thuộc phạm vi xây dựng |
+| **2** | **Tự phát triển hệ thống bản đồ/GPS** | Sử dụng Map/GPS Provider thay vì xây dựng hệ thống bản đồ riêng |
+| **3** | **Tự xây dựng cổng thanh toán** | CAB chỉ tích hợp Payment Provider; thông tin thẻ/tài khoản nhạy cảm không được lưu trực tiếp |
+| **4** | **Tự xây dựng hệ thống gửi SMS/Email/Push** | Sử dụng Notification Provider bên ngoài |
+| **5** | **Quản lý nhu cầu khách hàng ngoài phạm vi đặt xe** | Ví dụ: xử lý các yêu cầu chăm sóc khách hàng, khiếu nại hoặc yêu cầu đặc biệt cần được xác định riêng |
+| **6** | **Thuật toán tối ưu phân công tài xế nâng cao** | Chiến lược ưu tiên tài xế, scoring và thuật toán tối ưu cần được khách hàng xác nhận trước khi triển khai |
+| **7** | **Tự xác định chính sách giá/cước kinh doanh** | Hệ thống thực thi công thức đã được doanh nghiệp thống nhất; việc xây dựng chính sách giá thuộc Business Owner |
+| **8** | **Tự xác định chính sách hủy chuyến** | Quy tắc phí hủy, thời gian hủy và các trường hợp miễn phí cần được khách hàng xác nhận |
+| **9** | **Tự xác định thời gian phản hồi của tài xế** | Timeout bao lâu trước khi chuyển sang tài xế khác cần được Business Owner xác định |
+| **10** | **Tự quyết định tiêu chí tài xế phù hợp** | Các tiêu chí như khoảng cách, loại xe, rating, trạng thái... cần được thống nhất với khách hàng |
+| **11** | **Quản lý nhân sự tài xế ngoài hệ thống CAB** | Tuyển dụng, đào tạo, lương thưởng và quản lý nhân sự không thuộc phạm vi nền tảng |
+| **12** | **Hoạt động marketing/khuyến mãi** | Chương trình marketing và chiến lược kinh doanh chưa được xác định trong phạm vi hiện tại |
+
+---
+
+## 4.3. Các nội dung cần xác nhận với khách hàng
+
+Các nội dung sau **chưa nên tự đưa ra quyết định trong phạm vi dự án** mà cần BA làm rõ với Business Owner/Operation:
+
+| **STT** | **Vấn đề cần xác nhận** | **Câu hỏi cần làm rõ** |
+|---|---|---|
+| **1** | **Tính cước** | Công thức tính giá là gì? Theo km, thời gian, loại xe hay kết hợp? |
+| **2** | **Ưu tiên tài xế** | Ưu tiên theo khoảng cách, rating, thời gian online hay tiêu chí nào khác? |
+| **3** | **Thời gian phản hồi** | Tài xế có bao nhiêu giây/phút để accept hoặc reject? |
+| **4** | **Không tìm được tài xế** | Sau bao nhiêu lần tìm kiếm thì booking được đánh dấu thất bại? |
+| **5** | **Hủy chuyến** | Ai được hủy? Khi nào được hủy? Có tính phí không? |
+| **6** | **Mất kết nối** | Xử lý thế nào khi khách hàng hoặc tài xế mất mạng trong quá trình chuyến đi? |
+| **7** | **Thanh toán thất bại** | Cho phép retry bao nhiêu lần? Khi nào chuyển sang xử lý thủ công? |
+| **8** | **Lưu trữ dữ liệu** | Dữ liệu khách hàng, vị trí, giao dịch và audit log được lưu trong bao lâu? |
+| **9** | **ETA** | ETA lấy hoàn toàn từ Map/GPS Provider hay có logic điều chỉnh của ABC? |
+| **10** | **Tiêu chí tài xế phù hợp** | Loại xe, khoảng cách, trạng thái, rating và các điều kiện khác có được áp dụng không? |
+| **11** | **Kênh thông báo** | Giai đoạn đầu cần Push, SMS, Email hay tất cả? |
+| **12** | **Loại dịch vụ** | MVP chỉ hỗ trợ một loại dịch vụ hay nhiều loại xe/dịch vụ? |
+
+---
+
+## 4.4. Scope Boundary
+
+```text
+                    CAB SYSTEM
+                         │
+        ┌────────────────┴────────────────┐
+        │                                 │
+     IN SCOPE                         OUT OF SCOPE
+        │                                 │
+        ├─ Quản lý khách hàng             ├─ Xây dựng Map/GPS
+        ├─ Quản lý tài xế                 ├─ Tìm đường ngắn nhất
+        ├─ Quản lý phương tiện           ├─ Xây dựng Payment Gateway
+        ├─ Đặt xe                         ├─ Xây dựng Notification Provider
+        ├─ Tìm & phân tài xế              ├─ Chính sách giá
+        ├─ Theo dõi chuyến                ├─ Chính sách hủy
+        ├─ Tính cước                      ├─ Tuyển dụng tài xế
+        ├─ Thanh toán                     ├─ Marketing
+        ├─ Thông báo                      └─ Các yêu cầu chưa được
+        ├─ Đánh giá                          Business Owner xác nhận
+        ├─ Quản lý vận hành
+        ├─ Báo cáo
+        ├─ Phân quyền
+        └─ Audit Log
+```
+# 5. Business Requirements – Yêu cầu nghiệp vụ
+
+| **ID** | **Business Requirement** | **Mô tả** | **Stakeholder xác nhận** | **Ưu tiên** |
+|---|---|---|---|---|
+| **BR-01** | Quản lý khách hàng | Hệ thống phải cho phép khách hàng đăng ký, đăng nhập và cập nhật thông tin cá nhân | Business Owner / Operation | Must Have |
+| **BR-02** | Quản lý tài xế | Hệ thống phải cho phép tạo và quản lý tài khoản, hồ sơ, trạng thái hoạt động của tài xế | Business Owner / Operation | Must Have |
+| **BR-03** | Quản lý phương tiện | Hệ thống phải quản lý thông tin phương tiện và loại xe của tài xế | Operation | Must Have |
+| **BR-04** | Đặt xe | Khách hàng phải có thể nhập điểm đón, điểm đến, chọn loại xe và tạo yêu cầu đặt xe | Customer / Business Owner | Must Have |
+| **BR-05** | Tìm tài xế | Hệ thống phải tự động tìm tài xế phù hợp dựa trên các tiêu chí nghiệp vụ đã được thống nhất | Business Owner / Operation | Must Have |
+| **BR-06** | Phân công tài xế | Hệ thống phải gửi yêu cầu đến tài xế phù hợp và tiếp tục tìm tài xế khác nếu tài xế từ chối hoặc không phản hồi | Operation / Business Owner | Must Have |
+| **BR-07** | Tiêu chí ưu tiên tài xế | Doanh nghiệp phải xác định các tiêu chí dùng để ưu tiên tài xế như khoảng cách, trạng thái, loại xe hoặc các tiêu chí khác | Business Owner / Operation | Must Have |
+| **BR-08** | Thời gian phản hồi tài xế | Doanh nghiệp phải xác định thời gian tài xế được phép phản hồi trước khi hệ thống chuyển sang tài xế khác | Business Owner / Operation | Must Have |
+| **BR-09** | Theo dõi chuyến đi | Khách hàng phải có thể theo dõi trạng thái chuyến từ lúc tạo yêu cầu đến khi hoàn thành | Customer / Operation | Must Have |
+| **BR-10** | Theo dõi vị trí tài xế | Hệ thống phải tiếp nhận vị trí tài xế để hỗ trợ tìm tài xế và dự kiến thời gian đến | Operation / Driver | Must Have |
+| **BR-11** | Thông báo | Hệ thống phải thông báo cho khách hàng và tài xế khi xảy ra các sự kiện quan trọng của chuyến | Customer / Driver / Operation | Must Have |
+| **BR-12** | Tính cước | Hệ thống phải tính số tiền khách hàng cần thanh toán theo chính sách giá đã được doanh nghiệp xác nhận | Business Owner / Finance | Must Have |
+| **BR-13** | Chính sách giá | Doanh nghiệp phải xác định công thức tính cước dựa trên loại dịch vụ, khoảng cách, thời gian và các yếu tố liên quan | Business Owner / Finance | Must Have |
+| **BR-14** | Thanh toán | Hệ thống phải hỗ trợ thanh toán tiền mặt và thanh toán điện tử thông qua Payment Provider | Customer / Finance | Must Have |
+| **BR-15** | Xử lý thanh toán thất bại | Khi thanh toán điện tử thất bại, hệ thống phải thông báo và cho phép xử lý lại theo chính sách doanh nghiệp | Customer / Finance | Must Have |
+| **BR-16** | Hủy chuyến | Hệ thống phải hỗ trợ hủy chuyến theo chính sách hủy đã được doanh nghiệp xác nhận | Business Owner / Operation | Must Have |
+| **BR-17** | Xử lý mất kết nối | Hệ thống phải có cơ chế xử lý khi khách hàng hoặc tài xế mất kết nối trong quá trình đặt và thực hiện chuyến | Operation / Business Owner | Should Have |
+| **BR-18** | Không tìm được tài xế | Nếu không tìm được tài xế phù hợp, hệ thống phải thông báo rõ ràng cho khách hàng | Customer / Operation | Must Have |
+| **BR-19** | Lịch sử chuyến | Khách hàng phải có thể xem lịch sử chuyến, trạng thái và số tiền đã thanh toán | Customer | Must Have |
+| **BR-20** | Đánh giá tài xế | Khách hàng phải có thể đánh giá tài xế sau khi chuyến hoàn thành | Customer / Business Owner | Should Have |
+| **BR-21** | Quản lý vận hành | Nhân viên vận hành phải có thể xem và quản lý khách hàng, tài xế, phương tiện và các chuyến đang diễn ra | Operation | Must Have |
+| **BR-22** | Xử lý sự cố | Nhân viên vận hành phải có thể tra cứu và hỗ trợ xử lý các chuyến bị lỗi hoặc bất thường | Operation / CS | Must Have |
+| **BR-23** | Phân quyền | Hệ thống phải kiểm soát quyền truy cập theo vai trò và không cho phép nhân viên thực hiện các thao tác ngoài quyền hạn | Business Owner / System Admin | Must Have |
+| **BR-24** | Báo cáo | Hệ thống phải cung cấp báo cáo về số chuyến, doanh thu, tỷ lệ hoàn thành, tỷ lệ hủy và hiệu quả tài xế | Business Owner / Finance / Operation | Should Have |
+| **BR-25** | Audit Log | Hệ thống phải lưu vết các thao tác quan trọng của người dùng và nhân viên quản trị | Business Owner / System Admin | Must Have |
+| **BR-26** | Bảo vệ dữ liệu | Hệ thống phải bảo vệ thông tin cá nhân, dữ liệu vị trí và dữ liệu giao dịch | Business Owner / System Admin | Must Have |
+| **BR-27** | Không lưu dữ liệu thanh toán nhạy cảm | CAB không được lưu trực tiếp thông tin thẻ hoặc thông tin thanh toán nhạy cảm của khách hàng | Business Owner / Finance | Must Have |
+| **BR-28** | Khả năng mở rộng | Hệ thống phải cho phép mở rộng số lượng khách hàng, tài xế và chuyến mà không ảnh hưởng nghiêm trọng đến các chức năng hiện tại | Business Owner / Technical Team | Must Have |
+| **BR-29** | Mở rộng phương thức thanh toán | Hệ thống phải được thiết kế để có thể tích hợp thêm Payment Provider hoặc phương thức thanh toán mới | Business Owner / Finance | Should Have |
+| **BR-30** | Mở rộng kênh thông báo | Hệ thống phải cho phép bổ sung Notification Provider hoặc kênh thông báo mới mà không phải thay đổi toàn bộ hệ thống | Business Owner / Operation | Should Have |
+| **BR-31** | Mở rộng dịch vụ | Hệ thống phải có khả năng bổ sung các loại hình dịch vụ hoặc loại xe mới trong tương lai | Business Owner | Should Have |
+| **BR-32** | Báo cáo và dữ liệu quản trị | Hệ thống phải cung cấp dữ liệu đầy đủ để Ban giám đốc đánh giá hiệu quả hoạt động và ra quyết định | Business Owner | Should Have |
+
+# 6. Business Process – Quy trình nghiệp vụ
+
+## 6.1. Quy trình đặt xe tổng thể
+
+```mermaid
+flowchart TD
+    A([Bắt đầu]) --> B[Khách hàng đăng nhập]
+    B --> C[Nhập điểm đón và điểm đến]
+    C --> D[Chọn loại xe]
+    D --> E[Gửi yêu cầu đặt xe]
+
+    E --> F[Hệ thống tiếp nhận yêu cầu]
+    F --> G[Thông báo yêu cầu đã được tiếp nhận]
+
+    G --> H[Tìm tài xế phù hợp]
+
+    H --> I{Có tài xế phù hợp?}
+
+    I -- Không --> J[Thông báo không tìm được tài xế]
+    J --> K([Kết thúc])
+
+    I -- Có --> L[Gửi yêu cầu đến tài xế]
+
+    L --> M{Tài xế phản hồi?}
+
+    M -- Không --> N[Chờ hết thời gian phản hồi]
+    N --> H
+
+    M -- Có --> O{Tài xế chấp nhận?}
+
+    O -- Không --> H
+    O -- Có --> P[Xác nhận tài xế cho chuyến]
+
+    P --> Q[Thông báo tài xế đã nhận chuyến]
+    Q --> R[Theo dõi vị trí và ETA]
+
+    R --> S{Tài xế đã đến điểm đón?}
+
+    S -- Chưa --> R
+    S -- Rồi --> T[Thông báo tài xế đã đến]
+
+    T --> U[Tài xế đón khách]
+    U --> V[Cập nhật trạng thái đang di chuyển]
+
+    V --> W[Hoàn thành chuyến]
+    W --> X[Tính cước]
+
+    X --> Y{Phương thức thanh toán?}
+
+    Y -- Tiền mặt --> Z[Khách hàng thanh toán tiền mặt]
+    Y -- Điện tử --> AA[Gửi yêu cầu thanh toán Payment Provider]
+
+    AA --> AB{Thanh toán thành công?}
+
+    AB -- Có --> AC[Ghi nhận giao dịch thành công]
+    AB -- Không --> AD[Thông báo thanh toán thất bại]
+    AD --> AE[Xử lý thanh toán lại theo chính sách]
+
+    Z --> AF[Ghi nhận hoàn thành thanh toán]
+    AC --> AF
+    AE --> AF
+
+    AF --> AG[Thông báo kết quả thanh toán]
+    AG --> AH[Khách hàng đánh giá tài xế]
+    AH --> AI[Lưu lịch sử chuyến đi]
+
+    AI --> K([Kết thúc])
+```
 
