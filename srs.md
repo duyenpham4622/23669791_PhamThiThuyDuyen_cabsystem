@@ -1,35 +1,4 @@
 
-b1: xacs ddinh bussiness contact nguwx canh nghiepj vuj
-
-business problem
-
-mucj ddichs laf gif
-
-gias trij cuaj ht nayf taoj ra so voiws ht cux
-
-Xác định các stalkhoder?
-Lập bảng 
-c1: những stalkhoder 
-c2 vai trò 
-vẽ ma trận stakhoder () mức đọ ảnh  hưởng cảu các vai trò trong hệ thống
-3.
-bs goals :bg01: hỗ trợ thanh toán (= tiền mặt ....)
-bg02: giảm time tìm tài xế(tìm tài tự động, gần nhất
-4.
-scope_Phạm vi
-(ql đc khách hang, quản lý tài xế,...) 
-không thuộc trong scope(Dung ai tìm dương ngắn nhất, xử lý nhu cầu kh,...) phải deal vs kh
-5. Xác nhận lại với kh chuyển đổi thành business requirements
-6. business process -quy trình nghiệp vụ dùng công cụ mermaid trong markdown
-7. Functional Requirement 
-- 
-8. business rule và Exception
-9. mô hình hóa dữ liệu, xác định các thực thể
-10. yêu cầu phi chức năng
-11. thiết kế các usecase
-12. Đặt tả usecase
-13. aceptant _ tiêu chí chấp nhận ac
-14. truy xuất nguồn gốc yêu cầu _ requirement (rtm)
 # 1. Business Context – Ngữ cảnh nghiệp vụ
    ABC là doanh nghiệp cung cấp dịch vụ đặt xe trực tuyến, trong đó có 3 nhóm người dùng chính:
 
