@@ -180,3 +180,21 @@ THẤP   │           │   INFORMED      │
                   THẤP              CAO
                     MỨC ĐỘ QUAN TÂM
 
+```
+# 4. Business Goals
+
+| **ID** | **Business Goal** | **Mô tả** | **Giá trị kinh doanh** |
+|---|---|---|---|
+| **BG-01** | **Tự động hóa quy trình đặt xe và điều phối** | Tự động hóa từ lúc khách hàng tạo yêu cầu đến khi tìm và phân công tài xế | Giảm thao tác thủ công, giảm chi phí vận hành |
+| **BG-02** | **Nâng cao trải nghiệm khách hàng** | Cho phép khách hàng đặt xe, theo dõi trạng thái, tài xế và ETA | Tăng sự hài lòng và khả năng giữ chân khách hàng |
+| **BG-03** | **Tăng hiệu quả sử dụng tài xế** | Tìm tài xế phù hợp dựa trên vị trí, trạng thái và tiêu chí vận hành | Tăng tỷ lệ nhận chuyến và giảm thời gian chờ |
+| **BG-04** | **Tăng năng lực phục vụ** | Hệ thống có khả năng xử lý số lượng lớn khách hàng, tài xế và chuyến đi | Hỗ trợ mở rộng quy mô kinh doanh |
+| **BG-05** | **Tập trung hóa dữ liệu** | Quản lý tập trung dữ liệu khách hàng, tài xế, phương tiện, chuyến đi và giao dịch | Dễ tra cứu, kiểm soát và đối soát |
+| **BG-06** | **Nâng cao hiệu quả quản lý doanh thu** | Tự động tính cước, hỗ trợ nhiều phương thức thanh toán và quản lý giao dịch | Giảm sai sót và tăng khả năng kiểm soát doanh thu |
+| **BG-07** | **Quản trị dựa trên dữ liệu** | Cung cấp báo cáo về số chuyến, doanh thu, tỷ lệ hoàn thành, hủy và hiệu quả tài xế | Hỗ trợ ra quyết định chính xác |
+| **BG-08** | **Đảm bảo tính ổn định và khả năng phục hồi** | Cô lập lỗi của các thành phần như Payment hoặc Notification | Giảm downtime và rủi ro vận hành |
+| **BG-09** | **Đảm bảo bảo mật dữ liệu** | Bảo vệ thông tin cá nhân, vị trí, phương tiện và dữ liệu giao dịch | Giảm rủi ro bảo mật và hỗ trợ tuân thủ |
+| **BG-10** | **Xây dựng nền tảng có khả năng mở rộng** | Cho phép bổ sung dịch vụ, phương thức thanh toán và nhà cung cấp mới | Giảm chi phí phát triển trong tương lai |
+| **BG-11** | **Tăng khả năng kiểm soát hoạt động** | Cung cấp audit log và công cụ quản lý, theo dõi các chuyến bất thường | Tăng khả năng kiểm tra và xử lý sự cố |
+| **BG-12** | **Tạo nền tảng phát triển dịch vụ mới** | Kiến trúc linh hoạt để bổ sung các loại hình dịch vụ vận tải mới | Tạo cơ hội tăng trưởng dài hạn |
+
