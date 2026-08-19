@@ -117,3 +117,28 @@ không thuộc trong scope(Dung ai tìm dương ngắn nhất, xử lý nhu cầ
 | **Notification Provider** | Cung cấp dịch vụ gửi Push Notification, SMS, Email hoặc các kênh thông báo khác |
 | **Map/GPS Provider** | Cung cấp dữ liệu bản đồ, vị trí, khoảng cách và hỗ trợ tính ETA |
 | **Cơ quan quản lý / Pháp lý** | Đảm bảo hệ thống tuân thủ các quy định về vận tải, thanh toán và bảo vệ dữ liệu |
+
+# 2.1 Ma trận Power – Interest
+                         MỨC ĐỘ QUAN TÂM (INTEREST)
+                    Thấp                         Cao
+              ┌───────────────────────┬────────────────────────┐
+              │                       │                        │
+        Cao   │  KEEP SATISFIED       │  MANAGE CLOSELY        │
+              │                       │                        │
+              │ • System Admin        │ • Ban giám đốc         │
+              │ • Tài chính/Kế toán   │ • Operation             │
+              │ • DevOps              │ • BA                    │
+              │ • Pháp lý             │ • PM                    │
+              │ • Payment Provider    │ • Customer              │
+              │ • Map/GPS             │ • Driver                │
+              │                       │ • Development Team      │
+              │                       │ • CS                    │
+MỨC ĐỘ        │                       │                        │
+ẢNH HƯỞNG     ├───────────────────────┼────────────────────────┤
+(POWER)       │                       │                        │
+              │  MONITOR              │  KEEP INFORMED         │
+        Thấp  │                       │                        │
+              │ • Notification        │ • QA/Tester             │
+              │   Provider            │                        │
+              │                       │                        │
+              └───────────────────────┴────────────────────────┘
