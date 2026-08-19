@@ -23,6 +23,7 @@ không thuộc trong scope(Dung ai tìm dương ngắn nhất, xử lý nhu cầ
 6. business process -quy trình nghiệp vụ dùng công cụ mermaid trong markdown
 7. Functional Requirement 
 - 
+8. business rule và Exception
 # 1. Business Context – Ngữ cảnh nghiệp vụ
    ABC là doanh nghiệp cung cấp dịch vụ đặt xe trực tuyến, trong đó có 3 nhóm người dùng chính:
 
@@ -140,27 +141,42 @@ không thuộc trong scope(Dung ai tìm dương ngắn nhất, xử lý nhu cầ
 | **Cơ quan quản lý / Pháp lý** | 🔴 Cao | 🟠 Trung bình | **Keep Satisfied** – Đảm bảo tuân thủ pháp luật |
 
 ## Ma trận Power – Interest
-                         MỨC ĐỘ QUAN TÂM (INTEREST)
-                    Thấp                         Cao
-              ┌───────────────────────┬────────────────────────┐
-              │                       │                        │
-        Cao   │  KEEP SATISFIED       │  MANAGE CLOSELY        │
-              │                       │                        │
-              │ • System Admin        │ • Ban giám đốc         │
-              │ • Tài chính/Kế toán   │ • Operation             │
-              │ • DevOps              │ • BA                    │
-              │ • Pháp lý             │ • PM                    │
-              │ • Payment Provider    │ • Customer              │
-              │ • Map/GPS             │ • Driver                │
-              │                       │ • Development Team      │
-              │                       │ • CS                    │
-MỨC ĐỘ        │                       │                        │
-ẢNH HƯỞNG     ├───────────────────────┼────────────────────────┤
-(POWER)       │                       │                        │
-              │  MONITOR              │  KEEP INFORMED         │
-        Thấp  │                       │                        │
-              │ • Notification        │ • QA/Tester             │
-              │   Provider            │                        │
-              │                       │                        │
-              └───────────────────────┴────────────────────────┘
+  # 3. Ma trận Stakeholder – Power / Interest
+
+| **Mức độ ảnh hưởng / Mức độ quan tâm** | **Thấp** | **Cao** |
+|---|---|---|
+| **Cao** | **KEEP SATISFIED** 🟠<br><br>• System Admin<br>• Tài chính / Kế toán<br>• DevOps / Infrastructure<br>• Payment Provider<br>• Map/GPS Provider<br>• Cơ quan quản lý / Pháp lý | **MANAGE CLOSELY** 🔴<br><br>• Ban giám đốc / Business Owner<br>• Nhân viên vận hành<br>• Business Analyst (BA)<br>• Project Manager (PM)<br>• Khách hàng<br>• Tài xế<br>• Development Team |
+| **Thấp** | **MONITOR** 🟢<br><br>• Notification Provider | **KEEP INFORMED** 🟡<br><br>• Bộ phận CS<br>• QA / Tester |
+
+## Sơ đồ ma trận
+
+```text
+                    MỨC ĐỘ QUAN TÂM
+                  THẤP              CAO
+                    │                 │
+        ┌───────────┼─────────────────┐
+        │           │                 │
+        │  KEEP     │   MANAGE        │
+ CAO    │ SATISFIED │   CLOSELY       │
+        │           │                 │
+        │  System   │   Ban giám đốc  │
+        │  Admin    │   Operation     │
+        │  Finance  │   BA            │
+        │  DevOps   │   PM            │
+        │  Payment  │   Customer      │
+        │  Map/GPS  │   Driver        │
+        │  Pháp lý  │   Development   │
+        │           │                 │
+        ├───────────┼─────────────────┤
+        │           │                 │
+        │  MONITOR  │   KEEP          │
+THẤP   │           │   INFORMED      │
+        │           │                 │
+        │  Notify   │   CS            │
+        │  Provider │   QA / Tester   │
+        │           │                 │
+        └───────────┴─────────────────┘
+                    │                 │
+                  THẤP              CAO
+                    MỨC ĐỘ QUAN TÂM
 
