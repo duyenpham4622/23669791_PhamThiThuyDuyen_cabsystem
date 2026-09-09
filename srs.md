@@ -1065,30 +1065,6 @@ flowchart LR
     UC07 -.-> UC08
 ```
 # 12. Đặt tả usecase
-UC01 – Đăng ký tài khoản
-| Thành phần         | Mô tả                                                 |
-| ------------------ | ----------------------------------------------------- |
-| **Tên Use Case**   | Đăng ký tài khoản                                     |
-| **Mã Use Case**    | UC01                                                  |
-| **Actor**          | Khách hàng                                            |
-| **Mục tiêu**       | Cho phép khách hàng tạo tài khoản để sử dụng hệ thống |
-| **Tiền điều kiện** | Khách hàng chưa có tài khoản                          |
-| **Hậu điều kiện**  | Tài khoản được tạo thành công                         |
-| STT | Actor                  | Hệ thống                           |
-| --- | ---------------------- | ---------------------------------- |
-| 1   | Chọn **Đăng ký**       | Hiển thị biểu mẫu đăng ký          |
-| 2   | Nhập thông tin cá nhân |                                    |
-| 3   | Gửi yêu cầu đăng ký    |                                    |
-| 4   |                        | Kiểm tra tính hợp lệ của thông tin |
-| 5   |                        | Kiểm tra tài khoản đã tồn tại      |
-| 6   |                        | Tạo tài khoản                      |
-| 7   |                        | Thông báo đăng ký thành công       |
-| Mã | Trường hợp             | Xử lý                                   |
-| -- | ---------------------- | --------------------------------------- |
-| E1 | Thông tin không hợp lệ | Hệ thống yêu cầu nhập lại               |
-| E2 | Tài khoản đã tồn tại   | Hệ thống thông báo tài khoản đã tồn tại |
-| E3 | Lỗi hệ thống           | Thông báo đăng ký thất bại              |
-
 
 
 # 13. aceptant _ tiêu chí chấp nhận ac
