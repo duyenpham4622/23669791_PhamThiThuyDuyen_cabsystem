@@ -1064,17 +1064,19 @@ flowchart LR
     UC05 -.-> UC07
     UC07 -.-> UC08
 ```
-#12. Đặt tả usecase
-Thuộc tính	Nội dung
-Use Case ID	UC01
-Tên Use Case	Quản lý tài khoản
-Tác nhân chính	Customer, Driver
-Mục tiêu	Cho phép Customer và Driver đăng ký, đăng nhập và cập nhật thông tin tài khoản
-Tiền điều kiện	Người dùng có kết nối đến hệ thống
-Hậu điều kiện	Tài khoản được tạo hoặc thông tin tài khoản được cập nhật thành công
-#13. aceptant _ tiêu chí chấp nhận ac
-#14. truy xuất nguồn gốc yêu cầu _ requirement (rtm)
-# 14. Requirement Traceability Matrix (RTM)
+# 12. Đặt tả usecase
+| Thành phần         | Mô tả                                                 |
+| ------------------ | ----------------------------------------------------- |
+| **Tên Use Case**   | Đăng ký tài khoản                                     |
+| **Mã Use Case**    | UC01                                                  |
+| **Actor**          | Khách hàng                                            |
+| **Mục tiêu**       | Cho phép khách hàng tạo tài khoản để sử dụng hệ thống |
+| **Tiền điều kiện** | Khách hàng chưa có tài khoản                          |
+| **Hậu điều kiện**  | Tài khoản được tạo thành công                         |
+
+# 13. aceptant _ tiêu chí chấp nhận ac
+# 14. truy xuất nguồn gốc yêu cầu _ requirement (rtm)
+# 15. Requirement Traceability Matrix (RTM)
 
 | **Business Requirement** | **Functional Requirement** | **Use Case** | **Acceptance Criteria** | **Test Case** |
 |---|---|---|---|---|
